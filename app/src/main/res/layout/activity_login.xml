@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout   xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.Login"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:paddingHorizontal="22dp">
+
+    <ImageView
+        android:layout_width="208dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitCenter"
+        android:src="@drawable/digitalent"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Masuk ke akun Digitalent"
+        android:textAlignment="center"
+        android:textSize="24dp"
+        android:fontFamily="@font/dmsans_bold"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email/Nomor HP"
+            android:textColor="@color/black"
+            android:fontFamily="@font/dmsans_bold"
+            android:textSize="12dp"/>
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:layout_marginTop="9dp"
+            android:hint="nama@email.id atau 08123456789"
+            android:textSize="14dp"
+            android:fontFamily="@font/dmsans_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/rounded_edittext"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kata Sandi"
+            android:fontFamily="@font/dmsans_bold"
+            android:textColor="@color/black"
+            android:textSize="12dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/editTextPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="18dp"
+                android:layout_marginTop="9dp"
+                android:hint="**************"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:password="true"
+                android:inputType="textPassword"
+                android:background="@drawable/rounded_edittext">
+            </EditText>
+            <TextView
+                android:id="@+id/textViewShowPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lihat"
+                android:layout_alignBaseline="@id/editTextPassword"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="15dp"
+                android:fontFamily="@font/dmsans_medium"
+                android:textSize="14dp"
+                android:textColor="@color/blue"
+                android:clickable="true"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Lupa kata sandi?"
+        android:textColor="@color/black"
+        android:fontFamily="@font/dmsans_bold"
+        android:textSize="12dp"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Atau masuk menggunakan"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:fontFamily="@font/dmsans_regular"
+            android:textSize="14dp"
+            android:textColor="@color/grey_text_color"/>
+
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edittext"
+        android:backgroundTint="@color/primary_color"
+        android:fontFamily="@font/dmsans_medium"
+        android:text="Masuk"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="50dp"
+        android:gravity="center_horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belum punya akun?"
+            android:fontFamily="@font/dmsans_medium"
+            android:textSize="14dp"
+            android:textColor="@color/grey_text_color"/>
+
+        <TextView
+            android:id="@+id/textViewRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:fontFamily="@font/dmsans_medium"
+            android:text=" Daftar"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+
+</LinearLayout>

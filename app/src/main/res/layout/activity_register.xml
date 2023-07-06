@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.RegisterActivity"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="22dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lengkapi data berikut!"
+        android:textSize="24dp"
+        android:fontFamily="@font/dmsans_bold"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nama Lengkap"
+            android:textColor="@color/black"
+            android:fontFamily="@font/dmsans_bold"
+            android:textSize="12dp"/>
+
+        <EditText
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:background="@drawable/rouded_error_edittext2"
+            android:fontFamily="@font/dmsans_regular"
+            android:hint="Budi Andree"
+            android:padding="18dp"
+            android:textColor="@color/black"
+            android:textSize="14dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email/Nomor HP"
+            android:textColor="@color/black"
+            android:fontFamily="@font/dmsans_bold"
+            android:textSize="12dp"/>
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:layout_marginTop="9dp"
+            android:hint="nama@email.id atau 08123456789"
+            android:textSize="14dp"
+            android:fontFamily="@font/dmsans_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/rouded_error_edittext2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Jenis Kelamin*"
+            android:textColor="@color/black"
+            android:fontFamily="@font/dmsans_bold"
+            android:textSize="12dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dmsans_regular"
+            android:textColor="@color/black"
+            android:layout_marginTop="9dp"
+            app:boxStrokeWidth="0dp"
+            android:background="@drawable/rouded_error_edittext2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:text="Laki - laki"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kata sandi harus terdiri atas:"
+            android:fontFamily="@font/dmsans_regular"
+            android:textSize="12dp"
+            android:textColor="@color/grey"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/minimumCharPasswordCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/normal_check"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/minimumCharPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:text="Setidaknya 8 karakter"
+                android:fontFamily="@font/dmsans_regular"
+                android:textSize="12dp"
+                android:textColor="@color/grey"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/uppercaseCharPasswordCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/normal_check"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/uppercaseCharPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:text="1 huruf besar (A-Z)"
+                android:fontFamily="@font/dmsans_regular"
+                android:textSize="12dp"
+                android:textColor="@color/grey"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/minimumNumberPasswordCheck"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/normal_check"
+                android:layout_gravity="center_vertical"/>
+            <TextView
+                android:id="@+id/minimumNumberPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="9dp"
+                android:text="1 angka (1-9)"
+                android:fontFamily="@font/dmsans_regular"
+                android:textSize="12dp"
+                android:textColor="@color/grey"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Buat kata Sandi"
+            android:fontFamily="@font/dmsans_bold"
+            android:textColor="@color/black"
+            android:textSize="12dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/editTextPasswordRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="18dp"
+                android:layout_marginTop="9dp"
+                android:hint="Buat kata sandi"
+                android:textSize="14dp"
+                android:textColor="@color/black"
+                android:password="true"
+                android:inputType="textPassword"
+                android:background="@drawable/rouded_error_edittext2">
+            </EditText>
+            <TextView
+                android:id="@+id/textViewShowPasswordRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Lihat"
+                android:layout_alignBaseline="@id/editTextPasswordRegister"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="5dp"
+                android:fontFamily="@font/dmsans_medium"
+                android:textSize="14dp"
+                android:textColor="@color/blue"
+                android:clickable="true"/>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Daftar"
+            android:textColor="@color/white"
+            android:fontFamily="@font/dmsans_medium"
+            android:background="@drawable/rounded_edittext"
+            android:backgroundTint="@color/primary_color"/>
+
+    </LinearLayout>
+
+</LinearLayout>
