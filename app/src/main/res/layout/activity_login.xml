@@ -22,7 +22,7 @@
         android:text="Masuk ke akun Digitalent"
         android:textAlignment="center"
         android:textSize="24dp"
-        android:fontFamily="@font/dmsans_bold"
+        android:fontFamily="@font/nunitosans_regular"
         android:textColor="@color/black"/>
 
     <LinearLayout
@@ -36,20 +36,22 @@
             android:layout_height="wrap_content"
             android:text="Email/Nomor HP"
             android:textColor="@color/black"
-            android:fontFamily="@font/dmsans_bold"
+            android:fontFamily="@font/nunitosans_regular"
+            android:textFontWeight="700"
             android:textSize="12dp"/>
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="18dp"
             android:layout_marginTop="9dp"
+            android:background="@drawable/rouded_error_edittext2"
+            android:fontFamily="@font/nunitosans_regular"
             android:hint="nama@email.id atau 08123456789"
-            android:textSize="14dp"
-            android:fontFamily="@font/dmsans_regular"
+            android:padding="18dp"
             android:textColor="@color/black"
-            android:background="@drawable/rounded_edittext"/>
+            android:textFontWeight="500"
+            android:textSize="14dp"/>
     </LinearLayout>
 
 
@@ -62,9 +64,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="kata Sandi"
-            android:fontFamily="@font/dmsans_bold"
+            android:text="Kata Sandi"
+            android:fontFamily="@font/nunitosans_regular"
             android:textColor="@color/black"
+            android:textFontWeight="700"
             android:textSize="12dp"/>
 
         <RelativeLayout
@@ -81,7 +84,8 @@
                 android:textColor="@color/black"
                 android:password="true"
                 android:inputType="textPassword"
-                android:background="@drawable/rounded_edittext">
+                android:textFontWeight="400"
+                android:background="@drawable/rouded_error_edittext2">
             </EditText>
             <TextView
                 android:id="@+id/textViewShowPassword"
@@ -91,8 +95,9 @@
                 android:layout_alignBaseline="@id/editTextPassword"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="15dp"
-                android:fontFamily="@font/dmsans_medium"
+                android:fontFamily="@font/nunitosans_regular"
                 android:textSize="14dp"
+                android:textFontWeight="400"
                 android:textColor="@color/blue"
                 android:clickable="true"/>
         </RelativeLayout>
@@ -104,8 +109,9 @@
         android:layout_height="wrap_content"
         android:text="Lupa kata sandi?"
         android:textColor="@color/black"
-        android:fontFamily="@font/dmsans_bold"
+        android:fontFamily="@font/nunitosans_regular"
         android:textSize="12dp"
+        android:textFontWeight="400"
         android:layout_marginTop="20dp"/>
 
     <LinearLayout
@@ -127,8 +133,9 @@
             android:text="Atau masuk menggunakan"
             android:layout_weight="1"
             android:textAlignment="center"
-            android:fontFamily="@font/dmsans_regular"
+            android:fontFamily="@font/nunitosans_regular"
             android:textSize="14dp"
+            android:textFontWeight="400"
             android:textColor="@color/grey_text_color"/>
 
         <ImageView
@@ -146,8 +153,9 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/rounded_edittext"
         android:backgroundTint="@color/primary_color"
-        android:fontFamily="@font/dmsans_medium"
+        android:fontFamily="@font/nunitosans_regular"
         android:text="Masuk"
+        android:textFontWeight="700"
         android:textColor="@color/white" />
 
     <LinearLayout
@@ -160,7 +168,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Belum punya akun?"
-            android:fontFamily="@font/dmsans_medium"
+            android:fontFamily="@font/nunitosans_regular"
             android:textSize="14dp"
             android:textColor="@color/grey_text_color"/>
 
@@ -169,7 +177,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:fontFamily="@font/dmsans_medium"
+            android:fontFamily="@font/nunitosans_regular"
             android:text=" Daftar"
             android:textColor="@color/black"
             android:textSize="14dp" />
