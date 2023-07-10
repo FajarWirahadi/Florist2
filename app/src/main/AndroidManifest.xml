@@ -7,26 +7,32 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:label=""
         android:theme="@style/LoginTheme"
         tools:targetApi="31">
         <activity
-            android:name=".views.HomepageActivity"
-            android:exported="false" />
-        <activity
-            android:name=".views.RegisterActivity"
-            android:exported="true"/>
-        <activity
-            android:name=".views.Login"
-            android:exported="true"
-            android:label="">
+            android:name=".views.RegisterPhoneActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".views.HomepageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".views.RegisterActivity"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".views.Login"
+            android:exported="true">
         </activity>
     </application>
 

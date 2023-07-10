@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout   xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -21,8 +21,8 @@
         android:layout_height="wrap_content"
         android:text="Masuk ke akun Digitalent"
         android:textAlignment="center"
-        android:textSize="24dp"
-        android:fontFamily="@font/nunitosans_regular"
+        android:textSize="24sp"
+        android:fontFamily="@font/nunito_sans_bold"
         android:textColor="@color/black"/>
 
     <LinearLayout
@@ -34,11 +34,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_sans_bold"
             android:text="Email/Nomor HP"
             android:textColor="@color/black"
-            android:fontFamily="@font/nunitosans_regular"
-            android:textFontWeight="700"
-            android:textSize="12dp"/>
+            android:textSize="12sp"/>
 
         <EditText
             android:id="@+id/editTextEmail"
@@ -48,10 +47,10 @@
             android:background="@drawable/rouded_error_edittext2"
             android:fontFamily="@font/nunitosans_regular"
             android:hint="nama@email.id atau 08123456789"
-            android:padding="18dp"
+            android:padding="18sp"
             android:textColor="@color/black"
             android:textFontWeight="500"
-            android:textSize="14dp"/>
+            android:textSize="14sp"/>
     </LinearLayout>
 
 
@@ -65,10 +64,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Kata Sandi"
-            android:fontFamily="@font/nunitosans_regular"
+            android:fontFamily="@font/nunito_sans_bold"
             android:textColor="@color/black"
             android:textFontWeight="700"
-            android:textSize="12dp"/>
+            android:textSize="12sp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -80,7 +79,7 @@
                 android:padding="18dp"
                 android:layout_marginTop="9dp"
                 android:hint="**************"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:textColor="@color/black"
                 android:password="true"
                 android:inputType="textPassword"
@@ -95,10 +94,10 @@
                 android:layout_alignBaseline="@id/editTextPassword"
                 android:layout_alignParentRight="true"
                 android:layout_marginRight="15dp"
-                android:fontFamily="@font/nunitosans_regular"
-                android:textSize="14dp"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:textSize="14sp"
                 android:textFontWeight="400"
-                android:textColor="@color/blue"
+                android:textColor="@color/main_color"
                 android:clickable="true"/>
         </RelativeLayout>
 
@@ -110,7 +109,7 @@
         android:text="Lupa kata sandi?"
         android:textColor="@color/black"
         android:fontFamily="@font/nunitosans_regular"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:textFontWeight="400"
         android:layout_marginTop="20dp"/>
 
@@ -130,11 +129,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Atau masuk menggunakan"
+            android:text="@string/atau_daftar_menggunakan"
             android:layout_weight="1"
             android:textAlignment="center"
             android:fontFamily="@font/nunitosans_regular"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:textFontWeight="400"
             android:textColor="@color/grey_text_color"/>
 
@@ -150,10 +149,10 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="20sp"
         android:background="@drawable/rounded_edittext"
-        android:backgroundTint="@color/primary_color"
-        android:fontFamily="@font/nunitosans_regular"
+        android:backgroundTint="@color/main_color"
+        android:fontFamily="@font/nunito_sans_bold"
         android:text="Masuk"
         android:textFontWeight="700"
         android:textColor="@color/white" />
@@ -169,7 +168,7 @@
             android:layout_height="wrap_content"
             android:text="Belum punya akun?"
             android:fontFamily="@font/nunitosans_regular"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:textColor="@color/grey_text_color"/>
 
         <TextView
@@ -177,10 +176,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:fontFamily="@font/nunitosans_regular"
+            android:fontFamily="@font/nunito_sans_bold"
             android:text=" Daftar"
             android:textColor="@color/black"
-            android:textSize="14dp" />
+            android:textSize="14sp" />
     </LinearLayout>
 
 

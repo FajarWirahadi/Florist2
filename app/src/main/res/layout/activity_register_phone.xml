@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.RegisterPhoneActivity"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="18dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bergabung_ke_florist"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:text="@string/phone_number"
+            android:textColor="@color/black"
+            android:textSize="12sp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editTextPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:background="@drawable/rouded_error_edittext2"
+                android:fontFamily="@font/nunitosans_regular"
+                android:hint="@string/hint_phone_number"
+                android:paddingLeft="48dp"
+                android:paddingVertical="18dp"
+                android:paddingRight="18dp"
+                android:textColor="@color/black"
+                android:textFontWeight="500"
+                android:textSize="14sp"
+                android:inputType="number"/>
+            <TextView
+                android:id="@+id/textViewHintPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="+62"
+                android:layout_alignBaseline="@id/editTextPhoneNumber"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="15dp"
+                android:fontFamily="@font/nunitosans_regular"
+                android:textSize="14sp"
+                android:textFontWeight="400"
+                android:textColor="@color/black"
+                android:clickable="true"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edittext"
+        android:backgroundTint="@color/main_color"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:text="Lanjut"
+        android:textFontWeight="700"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/atau_daftar_menggunakan"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:fontFamily="@font/nunitosans_regular"
+            android:textSize="14sp"
+            android:textFontWeight="400"
+            android:textColor="@color/grey_text_color"/>
+
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnLoginGoogle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_success_edittext"
+        android:drawableLeft="@drawable/google_logo"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:paddingLeft="65dip"
+        android:paddingRight="65dip"
+        android:text="@string/daftar_menggunakan_google"
+        android:textAllCaps="false"
+        android:textColor="@color/main_color"
+        android:textFontWeight="700"
+        android:textSize="14sp"
+        android:maxLines="1"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <LinearLayout
+            android:id="@+id/layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            <TextView
+                android:id="@+id/text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saya setuju dengan "
+                android:textColor="@color/grey_text_color"
+                android:fontFamily="@font/nunitosans_semibold"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/terms_condition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/terms_condition"
+                android:textColor="@color/main_color"
+                android:fontFamily="@font/nunitosans_semibold"
+                android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" serta"
+                android:textColor="@color/grey_text_color"
+                android:fontFamily="@font/nunitosans_semibold"
+                android:textSize="14sp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_below="@id/layout1">
+            <TextView
+                android:id="@+id/privacy_policy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/privacy_policy"
+                android:textColor="@color/main_color"
+                android:fontFamily="@font/nunitosans_semibold"
+                android:textSize="14sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" yang ditetapkan oleh florist"
+                android:textColor="@color/grey_text_color"
+                android:fontFamily="@font/nunitosans_semibold"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|bottom"
+        android:layout_marginBottom="35dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Belum punya akun?"
+            android:fontFamily="@font/nunitosans_regular"
+            android:textSize="14sp"
+            android:textColor="@color/grey_text_color"/>
+
+        <TextView
+            android:id="@+id/textViewRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:text=" Masuk"
+            android:textColor="@color/main_color"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

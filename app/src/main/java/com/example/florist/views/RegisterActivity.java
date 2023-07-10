@@ -3,6 +3,7 @@ package com.example.florist.views;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -34,7 +35,6 @@ import com.google.firebase.ktx.Firebase;
 public class RegisterActivity extends AppCompatActivity {
 
     String[] items = {"Laki - laki", "Perempuan"};
-    AutoCompleteTextView autoCompleteText;
     ArrayAdapter<String> adapterItems;
     EditText editTextPassword, editTextEmail;
     TextView textViewShowPasswordRegister, minimumCharPassword, uppercaseCharPassword, minimumNumberPassword;
@@ -48,7 +48,6 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        autoCompleteText = findViewById(R.id.autoCompleteText);
         editTextPassword = findViewById(R.id.editTextPasswordRegister);
         editTextEmail = findViewById(R.id.editTextEmail);
         textViewShowPasswordRegister = findViewById(R.id.textViewShowPasswordRegister);
@@ -60,8 +59,7 @@ public class RegisterActivity extends AppCompatActivity {
         minimumNumberPasswordCheck = findViewById(R.id.minimumNumberPasswordCheck);
         btnRegister = findViewById(R.id.btnRegister);
         adapterItems = new ArrayAdapter<String>(this, R.layout.list_item, items);
-        autoCompleteText.setAdapter(adapterItems);
-        autoCompleteText.setDropDownBackgroundDrawable(autoCompleteText.getResources().getDrawable(R.drawable.rouded_error_edittext2));
+
         mAuth = FirebaseAuth.getInstance();
 
         ActionBar actionBar = getSupportActionBar();
@@ -73,13 +71,6 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 togglePassVisibility();
-            }
-        });
-
-        autoCompleteText.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String item = adapterView.getItemAtPosition(i).toString();
             }
         });
 
@@ -144,7 +135,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Intent intent = new Intent(getApplicationContext(), Login.class);
+        Intent intent = new Intent(getApplicationContext(), RegisterPhoneActivity.class);
         startActivityForResult(intent, 0);
         return true;
     }

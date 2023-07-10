@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Lengkapi data berikut!"
         android:textSize="24dp"
-        android:fontFamily="@font/nunitosans_regular"
+        android:fontFamily="@font/nunito_sans_bold"
         android:textColor="@color/black"/>
 
     <LinearLayout
@@ -37,7 +37,7 @@
             android:layout_marginTop="9dp"
             android:background="@drawable/rouded_error_edittext2"
             android:fontFamily="@font/nunitosans_regular"
-            android:hint="Budi Andree"
+            android:hint="@string/name_hint"
             android:padding="18dp"
             android:textColor="@color/black"
             android:textSize="14dp" />
@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:padding="18dp"
             android:layout_marginTop="9dp"
-            android:hint="nama@email.id atau 08123456789"
+            android:hint="@string/email_hint"
             android:textSize="14dp"
             android:fontFamily="@font/nunitosans_regular"
             android:textColor="@color/black"
@@ -84,22 +84,6 @@
             android:fontFamily="@font/nunitosans_regular"
             android:textSize="12dp"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/nunitosans_regular"
-            android:textColor="@color/black"
-            android:layout_marginTop="9dp"
-            app:boxStrokeWidth="0dp"
-            android:background="@drawable/rouded_error_edittext2"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="none"
-                android:text="Laki - laki"/>
-        </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
 
@@ -231,9 +215,10 @@
             android:layout_marginTop="20dp"
             android:text="Daftar"
             android:textColor="@color/white"
-            android:fontFamily="@font/nunitosans_regular"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:textAllCaps="false"
             android:background="@drawable/rounded_edittext"
-            android:backgroundTint="@color/primary_color"/>
+            android:backgroundTint="@color/main_color"/>
 
     </LinearLayout>
 

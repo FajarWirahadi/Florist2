@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Florist</string>
+    <string name="bergabung_ke_florist">Mari Bergabung ke Florist</string>
+    <string name="phone_number">Nomor HP</string>
+    <string name="hint_phone_number">81234567890</string>
+    <string name="atau_daftar_menggunakan">Atau daftar menggunakan</string>
+    <string name="daftar_menggunakan_google">Daftar menggunakan google</string>
+    <string name="login">Masuk</string>
+    <string name="terms_condition">Syarat dan Ketentuan</string>
+    <string name="privacy_policy">Kebijakan Privasi</string>
+    <string name="name_hint">Budi Andree</string>
+    <string name="email_hint">nama123@email.id</string>
 </resources>
