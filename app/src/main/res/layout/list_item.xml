@@ -8,7 +8,5 @@
     android:maxLines="1"
     android:layout_marginTop="10dp"
     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-    android:background="@drawable/rounded_edittext">
-
-
+    android:background="@drawable/rouded_error_edittext">
 </TextView>

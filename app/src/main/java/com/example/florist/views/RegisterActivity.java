@@ -3,8 +3,10 @@ package com.example.florist.views;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -15,12 +17,15 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,11 +38,12 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.ktx.Firebase;
 
 public class RegisterActivity extends AppCompatActivity {
-
+    ProgressBar progressBar;
+    AutoCompleteTextView autoCompleteTextView;
     String[] items = {"Laki - laki", "Perempuan"};
     ArrayAdapter<String> adapterItems;
-    EditText editTextPassword, editTextEmail;
-    TextView textViewShowPasswordRegister, minimumCharPassword, uppercaseCharPassword, minimumNumberPassword;
+    EditText editTextPassword, editTextPassword2,editTextEmail;
+    TextView textViewShowPasswordRegister, textViewShowPasswordRegister2, minimumCharPassword, uppercaseCharPassword, minimumNumberPassword;
     ImageView minimumCharPasswordCheck, uppercaseCharPasswordCheck, minimumNumberPasswordCheck;
     Button btnRegister;
     public boolean isPasswordVisible;
@@ -48,18 +54,36 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        progressBar = findViewById(R.id.progressBar);
         editTextPassword = findViewById(R.id.editTextPasswordRegister);
+        editTextPassword2 = findViewById(R.id.editTextPasswordRegister2);
         editTextEmail = findViewById(R.id.editTextEmail);
         textViewShowPasswordRegister = findViewById(R.id.textViewShowPasswordRegister);
+        textViewShowPasswordRegister2 = findViewById(R.id.textViewShowPasswordRegister2);
         minimumCharPassword = findViewById(R.id.minimumCharPassword);
         uppercaseCharPassword = findViewById(R.id.uppercaseCharPassword);
         minimumNumberPassword = findViewById(R.id.minimumNumberPassword);
         minimumCharPasswordCheck = findViewById(R.id.minimumCharPasswordCheck);
         uppercaseCharPasswordCheck = findViewById(R.id.uppercaseCharPasswordCheck);
         minimumNumberPasswordCheck = findViewById(R.id.minimumNumberPasswordCheck);
+//        autoCompleteTextView = findViewById(R.id.autoCompleteText);
         btnRegister = findViewById(R.id.btnRegister);
-        adapterItems = new ArrayAdapter<String>(this, R.layout.list_item, items);
+        /*adapterItems = new ArrayAdapter<String>(this, R.layout.list_item, items);
+        autoCompleteTextView.setAdapter(adapterItems);
+        autoCompleteTextView.setDropDownBackgroundDrawable(autoCompleteTextView.getResources().getDrawable(R.drawable.rouded_error_edittext2));*/
 
+        progressBar.setMax(1000);
+        int currentProgress = 330;
+        ObjectAnimator.ofInt(progressBar, "progress", currentProgress)
+                .setDuration(1500)
+                .start();
+        /*autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String item = adapterItems.getItem(i).toString();
+                Log.d("test", "hai");
+            }
+        });*/
         mAuth = FirebaseAuth.getInstance();
 
         ActionBar actionBar = getSupportActionBar();
@@ -70,7 +94,13 @@ public class RegisterActivity extends AppCompatActivity {
         textViewShowPasswordRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                togglePassVisibility();
+                togglePassVisibility(editTextPassword);
+            }
+        });
+        textViewShowPasswordRegister2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                togglePassVisibility(editTextPassword2);
             }
         });
 
@@ -85,11 +115,11 @@ public class RegisterActivity extends AppCompatActivity {
                 a = minimumCharPassword.getCurrentTextColor();
                 b = uppercaseCharPassword.getCurrentTextColor();
                 c = minimumNumberPassword.getCurrentTextColor();
-                Log.d("Integer warna", String.valueOf(a));
+                boolean isSame = checkPassword();
                 if (a == pass && b == pass && c == pass){
                     String email = editTextEmail.getText().toString();
                     String password = editTextPassword.getText().toString();
-                    mAuth.createUserWithEmailAndPassword(email, password)
+                    /*mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -101,11 +131,18 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(RegisterActivity.this, "Authentication failed", Toast.LENGTH_SHORT).show();
                             }
                         }
-                    });
-                    Intent intent = new Intent(RegisterActivity  .this, HomepageActivity.class);
-                    RegisterActivity.this.startActivity(intent);
+                    });*/
+                    if (isSame) {
+                        Intent intent = new Intent(RegisterActivity  .this, RegisterSelectVerificationActivity.class);
+                        RegisterActivity.this.startActivity(intent);
+                        Toast.makeText(RegisterActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                    }
+
+
+
                 } else {
-                    editTextPassword.setBackground(getDrawable(R.drawable.rouded_error_edittext));
+                    editTextPassword2.setBackground(AppCompatResources.getDrawable(RegisterActivity.this, R.drawable.rounded_error_edittext));
+                    editTextPassword2.findFocus();
                 }
             }
         });
@@ -139,24 +176,24 @@ public class RegisterActivity extends AppCompatActivity {
         startActivityForResult(intent, 0);
         return true;
     }
-    public void togglePassVisibility(){
+    public void togglePassVisibility(EditText editText){
         if (isPasswordVisible) {
-            String pass = editTextPassword.getText().toString();
-            editTextPassword.setTransformationMethod(PasswordTransformationMethod.getInstance());
-            editTextPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-            editTextPassword.setText(pass);
-            editTextPassword.setSelection(pass.length());
+            String pass = editText.getText().toString();
+            editText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            editText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+            editText.setText(pass);
+            editText.setSelection(pass.length());
         }else {
-            String pass = editTextPassword.getText().toString();
-            editTextPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-            editTextPassword.setInputType(InputType.TYPE_CLASS_TEXT);
-            editTextPassword.setText(pass);
-            editTextPassword.setSelection(pass.length());
+            String pass = editText.getText().toString();
+            editText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            editText.setInputType(InputType.TYPE_CLASS_TEXT);
+            editText.setText(pass);
+            editText.setSelection(pass.length());
         }
         isPasswordVisible = !isPasswordVisible;
     }
     public void checkMinimumCharPassword(){
-        if (editTextPassword.getText().toString().length() <= 8) {
+        if (editTextPassword2.getText().toString().length() <= 8) {
             minimumCharPassword.setTextColor(getColor(R.color.red));
             minimumCharPasswordCheck.setImageResource(R.drawable.error_check);
         } else {
@@ -165,9 +202,9 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
     public void checkUppercaseCharPassword(){
-        String password = editTextPassword.getText().toString();
+        String password = editTextPassword2.getText().toString();
         boolean hasUppercase = !password.equals(password.toLowerCase());
-        if (hasUppercase == false) {
+        if (!hasUppercase) {
             uppercaseCharPassword.setTextColor(getColor(R.color.red));
             uppercaseCharPasswordCheck.setImageResource(R.drawable.error_check);
         } else {
@@ -176,13 +213,23 @@ public class RegisterActivity extends AppCompatActivity {
         }
     }
     public void checkMinimumNumberPassword(){
-        String password = editTextPassword.getText().toString();
-        if (password.matches("^.*[0-9]+.*$") == true){
+        String password = editTextPassword2.getText().toString();
+        if (password.matches("^.*[0-9]+.*$")){
             minimumNumberPassword.setTextColor(getColor(R.color.green));
             minimumNumberPasswordCheck.setImageResource(R.drawable.success_check);
         } else {
             minimumNumberPassword.setTextColor(getColor(R.color.red));
             minimumNumberPasswordCheck.setImageResource(R.drawable.error_check);
+        }
+    }
+    public boolean checkPassword(){
+        if (editTextPassword.getText().toString().equals(editTextPassword2.getText().toString())) {
+            return true;
+        } else {
+            editTextPassword2.setBackground(AppCompatResources.getDrawable(RegisterActivity.this, R.drawable.rounded_error_edittext));
+            editTextPassword.setBackground(AppCompatResources.getDrawable(RegisterActivity.this, R.drawable.rounded_error_edittext));
+            editTextPassword2.findFocus();
+            return false;
         }
     }
 }

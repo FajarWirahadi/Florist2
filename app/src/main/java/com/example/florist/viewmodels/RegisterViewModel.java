@@ -5,4 +5,5 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterViewModel {
     private FirebaseAuth mAuth;
+    String password;
 }
