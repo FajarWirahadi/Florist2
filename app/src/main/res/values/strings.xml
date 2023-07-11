@@ -15,4 +15,17 @@
     <string name="hint_make_password">Buat kata sandi</string>
     <string name="confirm_password">Konfirmasi kata sandi</string>
     <string name="hint_confirm_password">Konfirmasi kata sandi</string>
+    <string name="verif_code">Verifikasi kode OTP</string>
+    <string name="verif_code_detail">Pilih salah satu cara di bawah ini untuk\nmendapatkan kode OTP</string>
+    <string name="kirim_melalui_sms">Kirim melalui SMS</string>
+    <string name="supporting_text">Supporting text</string>
+    <string name="kirim_melalui_whatsapp">Kirim melalui WhatsApp</string>
+    <string name="hint_whatsapp">+6281234567890</string>
+    <string name="masukkkan_kode">Masukkan kode OTP yang Anda terima melalui</string>
+    <string name="sms">SMS </string>
+    <string name="di">di </string>
+    <string name="nomor_salah">Nomor salah? </string>
+    <string name="ubah"> Ubah</string>
+    <string name="ubah1">Ubah</string>
+    <string name="countdowntimer">00:00</string>
 </resources>

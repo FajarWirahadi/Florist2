@@ -1,9 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.RegisterSelectVerificationActivity">
+    tools:context=".views.RegisterSelectVerificationActivity"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="22dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:scaleY="0.75"
+        android:progressDrawable="@drawable/greenprogress"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/verif_code"
+        android:textSize="24sp"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/verif_code_detail"
+        android:textColor="@color/grey_text_color"
+        android:textSize="14sp"
+        android:lineHeight="22sp"
+        android:fontFamily="@font/nunitosans_regular"/>
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="25dp"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_gravity="center"/>
+
+    <RelativeLayout
+        android:id="@+id/layoutPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rouded_error_edittext2"
+        android:layout_marginTop="30dp"
+        android:padding="25dp">
+        <ImageView
+            android:id="@+id/phoneLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/phone"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"/>
+        <TextView
+            android:id="@+id/kirimSMS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kirim_melalui_sms"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:layout_toEndOf="@id/phoneLogo"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+        <TextView
+            android:id="@+id/supportingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/supporting_text"
+            android:fontFamily="@font/nunitosans_regular"
+            android:layout_toEndOf="@id/phoneLogo"
+            android:layout_below="@id/kirimSMS"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+        <ImageView
+            android:id="@+id/rightArrow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right_arrow"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layoutWhatsapp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rouded_error_edittext2"
+        android:layout_marginTop="15dp"
+        android:padding="25dp">
+        <ImageView
+            android:id="@+id/whatsappLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/whatsapp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"/>
+        <TextView
+            android:id="@+id/kirimWhatsapp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kirim_melalui_whatsapp"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:layout_toEndOf="@id/whatsappLogo"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+        <TextView
+            android:id="@+id/whatsappText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_whatsapp"
+            android:fontFamily="@font/nunitosans_regular"
+            android:layout_toEndOf="@id/whatsappLogo"
+            android:layout_below="@id/kirimWhatsapp"
+            android:textColor="@color/black"
+            android:textSize="14sp"/>
+        <ImageView
+            android:id="@+id/rightArrow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/right_arrow"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+
+</LinearLayout>

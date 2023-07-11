@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".views.RegisterVerificationActivity"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="22dp">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:scaleY="0.75"
+        android:progressDrawable="@drawable/greenprogress"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="@string/verif_code"
+        android:textSize="24sp"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/masukkkan_kode"
+        android:textColor="@color/grey_text_color"
+        android:textSize="14sp"
+        android:fontFamily="@font/nunitosans_regular"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sms"
+            android:textColor="@color/grey_text_color"
+            android:textSize="14sp"
+            android:fontFamily="@font/nunitosans_regular"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/di"
+            android:textColor="@color/grey_text_color"
+            android:textSize="14sp"
+            android:fontFamily="@font/nunitosans_regular"
+            android:layout_marginStart="4sp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/hint_whatsapp"
+            android:textColor="@color/main_color"
+            android:textSize="14sp"
+            android:layout_marginStart="4sp"
+            android:fontFamily="@font/nunitosans_regular"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="25dp">
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:fontFamily="@font/nunitosans_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/rounded_number_editext"
+            android:inputType="number"
+            android:layout_marginEnd="20dp"/>
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:fontFamily="@font/nunitosans_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/rounded_number_editext"
+            android:inputType="number"
+            android:layout_marginEnd="20dp"/>
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:fontFamily="@font/nunitosans_regular"
+            android:textColor="@color/black"
+            android:background="@drawable/rounded_number_editext"
+            android:inputType="number"
+            android:layout_marginEnd="20dp"/>
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:textAlignment="center"
+            android:layout_marginEnd="20dp"
+            android:textSize="14sp"
+            android:fontFamily="@font/nunitosans_regular"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:background="@drawable/rounded_number_editext"/>
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="50dp"
+            android:layout_height="55dp"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:fontFamily="@font/nunitosans_regular"
+            android:textColor="@color/black"
+            android:inputType="number"
+            android:background="@drawable/rounded_number_editext"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/countDownTimer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textAlignment="center"
+        android:text="@string/countdowntimer"
+        android:textSize="24sp"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:textColor="@color/black"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_marginBottom="35dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|bottom"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunitosans_regular"
+            android:text="@string/nomor_salah"
+            android:textColor="@color/grey_text_color"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textViewRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:text=" Ubah"
+            android:textColor="@color/main_color"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+
+</LinearLayout>
