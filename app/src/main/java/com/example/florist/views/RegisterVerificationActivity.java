@@ -52,7 +52,7 @@ public class RegisterVerificationActivity extends AppCompatActivity {
                 .start();
 
         setUpInputOTPInputs();
-        new CountDownTimer(120000, 1000) {
+        new CountDownTimer(6000, 1000) {
 
             @Override
             public void onTick(long l) {
@@ -64,7 +64,7 @@ public class RegisterVerificationActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                countDownTimer.setText("Done");
+                countDownTimer.setText("Waktu habis");
             }
         }.start();
 

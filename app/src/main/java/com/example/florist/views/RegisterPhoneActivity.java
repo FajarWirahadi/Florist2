@@ -1,6 +1,7 @@
 package com.example.florist.views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -35,7 +36,14 @@ public class RegisterPhoneActivity extends AppCompatActivity {
                 Log.d("Phone Number", phoneNumber);
                 Log.d("Edit text phone number", editTextPhoneNumber.getText().toString());
                 Intent intent = new Intent(RegisterPhoneActivity.this, RegisterActivity.class);
-                RegisterPhoneActivity.this.startActivity(intent);
+                intent.putExtra("phoneNumber", phoneNumber);
+
+
+                if (editTextPhoneNumber.getText().toString().isEmpty()) {
+                    editTextPhoneNumber.setBackground(AppCompatResources.getDrawable(RegisterPhoneActivity.this ,R.drawable.rounded_error_edittext));
+                } else {
+                    RegisterPhoneActivity.this.startActivity(intent);
+                }
             }
         });
 

@@ -28,4 +28,10 @@
     <string name="ubah"> Ubah</string>
     <string name="ubah1">Ubah</string>
     <string name="countdowntimer">00:00</string>
+    <string name="lupa_kata_sandi">Lupa kata sandi anda?</string>
+    <string name="masukkan_email">Masukkan email yang terdaftar pada akun Florist\nuntuk mengatur ulang kata sandi anda</string>
+    <string name="kirim_email">Kirim Email </string>
+    <string name="reset_kata_sandi">Reset Kata Sandi</string>
+    <string name="pastikan_password">Pastikan kata sandi tidak mudah ditebak dan\nberbeda dengan kata sandi di akun lain</string>
+    <string name="reset_password">Reset Password</string>
 </resources>
