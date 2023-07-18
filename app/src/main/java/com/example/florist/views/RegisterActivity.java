@@ -36,6 +36,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.florist.R;
+import com.example.florist.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -48,12 +49,12 @@ public class RegisterActivity extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextView;
     String[] items = {"Laki - laki", "Perempuan"};
     ArrayAdapter<String> adapterItems;
-    EditText editTextPassword, editTextPassword2,editTextEmail;
+    EditText editTextUserName, editTextPassword, editTextPassword2,editTextEmail;
     TextView textViewShowPasswordRegister, textViewShowPasswordRegister2, minimumCharPassword, uppercaseCharPassword, minimumNumberPassword;
     ImageView minimumCharPasswordCheck, uppercaseCharPasswordCheck, minimumNumberPasswordCheck;
     Button btnRegister;
     public boolean isPasswordVisible;
-    String phoneNumber;
+    String userName, email, password, phoneNumber;
     private FirebaseAuth mAuth;
 
     @Override
@@ -62,6 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         progressBar = findViewById(R.id.progressBar);
+        editTextUserName = findViewById(R.id.editTextUserName);
         editTextPassword = findViewById(R.id.editTextPasswordRegister);
         editTextPassword2 = findViewById(R.id.editTextPasswordRegister2);
         editTextEmail = findViewById(R.id.editTextEmail);
@@ -101,8 +103,18 @@ public class RegisterActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras!=null) {
+            userName = extras.getString("userName");
+            email = extras.getString("email");
+            password = extras.getString("password");
             phoneNumber = extras.getString("phoneNumber");
-            Log.d("phoneNumberRegister", phoneNumber);
+            editTextUserName.setText(userName);
+            editTextEmail.setText(email);
+
+            editTextPassword.setText(password);
+            editTextPassword2.setText(password);
+//            Log.d("Bundle userName", phoneNumber);
+//            Log.d("Bundle email", email);
+//            Log.d("Bundle password", password);
         }
 
         textViewShowPasswordRegister.setOnClickListener(new View.OnClickListener() {
@@ -131,8 +143,9 @@ public class RegisterActivity extends AppCompatActivity {
                 c = minimumNumberPassword.getCurrentTextColor();
                 boolean isSame = checkPassword();
                 if (a == pass && b == pass && c == pass){
-                    String email = editTextEmail.getText().toString();
-                    String password = editTextPassword.getText().toString();
+                     email = editTextEmail.getText().toString();
+                     password = editTextPassword.getText().toString();
+                     userName = editTextUserName.getText().toString();
                     /*mAuth.createUserWithEmailAndPassword(email, password)
                             .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
                         @Override
@@ -147,8 +160,11 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     });*/
                     if (isSame) {
-                        Intent intent = new Intent(RegisterActivity  .this, RegisterSelectVerificationActivity.class);
+                        Intent intent = new Intent(RegisterActivity.this, RegisterSelectVerificationActivity.class);
                         intent.putExtra("phoneNumber", phoneNumber);
+                        intent.putExtra("userName", userName);
+                        intent.putExtra("email", email);
+                        intent.putExtra("password", password);
                         RegisterActivity.this.startActivity(intent);
                     }
 
@@ -187,6 +203,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         Intent intent = new Intent(this, RegisterPhoneActivity.class);
+        intent.putExtra("phoneNumber", phoneNumber);
         startActivityForResult(intent, 0);
         return true;
     }
