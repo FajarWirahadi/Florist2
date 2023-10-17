@@ -11,14 +11,18 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <item name="android:autoCompleteTextViewStyle">@drawable/rouded_error_edittext2</item>
+        <item name="android:autoCompleteTextViewStyle">@drawable/rounded_normal_edittext</item>
 
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="LoginTheme" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">@android:color/transparent</item>
-        <item name="android:dropDownSelector">@drawable/rouded_error_edittext2</item>
+    <style name="SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splashscreen</item>
+    </style>
 
+    <style name="LoginTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:dropDownSelector">@drawable/rounded_normal_edittext</item>
     </style>
 </resources>

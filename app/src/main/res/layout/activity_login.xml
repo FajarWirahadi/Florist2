@@ -9,17 +9,10 @@
     android:background="@color/white"
     android:paddingHorizontal="22dp">
 
-    <ImageView
-        android:layout_width="208dp"
-        android:layout_height="150dp"
-        android:layout_gravity="center_horizontal"
-        android:scaleType="fitCenter"
-        android:src="@drawable/digitalent"/>
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Masuk ke akun Digitalent"
+        android:text="@string/masuk_ke_akun_florist"
         android:textAlignment="center"
         android:textSize="24sp"
         android:fontFamily="@font/nunito_sans_bold"
@@ -31,20 +24,33 @@
         android:orientation="vertical"
         android:layout_marginTop="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:text="Email/Nomor HP"
-            android:textColor="@color/black"
-            android:textSize="12sp"/>
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@string/email_nomor_hp"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@string/mandatory"
+                android:textColor="@color/red"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
 
         <EditText
             android:id="@+id/editTextEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9dp"
-            android:background="@drawable/rouded_error_edittext2"
+            android:layout_marginTop="4sp"
+            android:background="@drawable/rounded_normal_edittext"
             android:fontFamily="@font/nunitosans_regular"
             android:hint="nama@email.id atau 08123456789"
             android:padding="18sp"
@@ -60,14 +66,25 @@
         android:orientation="vertical"
         android:layout_marginTop="20dp">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Kata Sandi"
-            android:fontFamily="@font/nunito_sans_bold"
-            android:textColor="@color/black"
-            android:textFontWeight="700"
-            android:textSize="12sp"/>
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@string/kata_sandi"
+                android:textColor="@color/black"
+                android:textSize="12sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_sans_bold"
+                android:text="@string/mandatory"
+                android:textColor="@color/red"
+                android:textSize="12sp"/>
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -77,28 +94,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="18dp"
-                android:layout_marginTop="9dp"
+                android:layout_marginTop="4sp"
                 android:hint="**************"
                 android:textSize="14sp"
                 android:textColor="@color/black"
                 android:password="true"
                 android:inputType="textPassword"
                 android:textFontWeight="400"
-                android:background="@drawable/rouded_error_edittext2">
+                android:background="@drawable/rounded_normal_edittext">
             </EditText>
             <TextView
                 android:id="@+id/textViewShowPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lihat"
+                android:text="@string/lihat"
                 android:layout_alignBaseline="@id/editTextPassword"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="15dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
                 android:fontFamily="@font/nunito_sans_bold"
                 android:textSize="14sp"
                 android:textFontWeight="400"
                 android:textColor="@color/main_color"
-                android:clickable="true"/>
+                android:clickable="true"
+                android:focusable="true" />
         </RelativeLayout>
 
     </LinearLayout>
@@ -107,16 +125,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lupa kata sandi?"
-        android:textColor="@color/black"
-        android:fontFamily="@font/nunitosans_regular"
-        android:textSize="12sp"
+        android:textColor="@color/main_color"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:textSize="14sp"
         android:textFontWeight="400"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="16sp"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16sp"
+        android:background="@drawable/rounded_normal_edittext"
+        android:backgroundTint="@color/main_color"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:text="Masuk"
+        android:textFontWeight="700"
+        android:textColor="@color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="16sp"
         android:orientation="horizontal"
         android:weightSum="3">
 
@@ -135,7 +165,7 @@
             android:fontFamily="@font/nunitosans_regular"
             android:textSize="14sp"
             android:textFontWeight="400"
-            android:textColor="@color/grey_text_color"/>
+            android:textColor="@color/gray_500"/>
 
         <ImageView
             android:layout_width="65dp"
@@ -146,41 +176,41 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnLoginGoogle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20sp"
-        android:background="@drawable/rounded_edittext"
-        android:backgroundTint="@color/main_color"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_normal_edittext"
+        android:drawableLeft="@drawable/google_logo"
         android:fontFamily="@font/nunito_sans_bold"
-        android:text="Masuk"
+        android:paddingLeft="65dip"
+        android:paddingRight="65dip"
+        android:text="@string/daftar_menggunakan_google"
+        android:textAllCaps="false"
+        android:textColor="@color/main_color"
         android:textFontWeight="700"
-        android:textColor="@color/white" />
-
+        android:textSize="14sp"
+        android:maxLines="1"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dip"
         android:orientation="horizontal"
-        android:layout_marginTop="50dp"
-        android:gravity="center_horizontal">
+        android:layout_weight="1"
+        android:layout_marginBottom="40sp"
+        android:gravity="center_horizontal|bottom">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Belum punya akun?"
-            android:fontFamily="@font/nunitosans_regular"
             android:textSize="14sp"
-            android:textColor="@color/grey_text_color"/>
-
+            android:textColor="@color/gray_500"/>
         <TextView
             android:id="@+id/textViewRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:fontFamily="@font/nunito_sans_bold"
             android:text=" Daftar"
-            android:textColor="@color/black"
+            android:textColor="@color/olive_500"
             android:textSize="14sp" />
     </LinearLayout>
-
-
 </LinearLayout>

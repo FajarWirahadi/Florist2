@@ -1,16 +1,19 @@
 package com.example.florist.model;
 
 public class User {
+    private String userId;
     private String username;
     private String email;
     private String password;
     private String phoneNumber;
+    private boolean isLogin;
 
-    public User(String username, String email, String password, String phoneNumber) {
+    public User(String username, String email, String password, String phoneNumber, boolean isLogin) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
+        this.isLogin = isLogin;
     }
 
     public String getUsername() {
@@ -44,5 +47,9 @@ public class User {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public boolean getIsLogin() {return isLogin;}
+
+    public void setIslogin() {this.isLogin = isLogin; }
 
 }

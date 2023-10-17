@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".views.RegisterSuccessActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="16dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/heading_sm_bold"
+            android:layout_marginTop="15dp"
+            android:text="@string/akun_berhasil_dibuat"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/body_md_regular"
+            android:layout_marginTop="16dp"
+            android:text="Terima kasih sudah membuat akun. Klik untuk \nmemulai pakai Setaman!"
+            android:textColor="@color/gray_500"/>
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_marginTop="32dp"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/success"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center_horizontal|bottom"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                style="@style/label_lg_bold"
+                android:paddingVertical="10dip"
+                android:layout_marginBottom="16dp"
+                android:text="@string/mulai_pakai_setaman"
+                android:textColor="@color/text_tertiary"
+                android:textAllCaps="false"
+                android:background="@drawable/rounded_success_button"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

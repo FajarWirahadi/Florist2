@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="18dp"
+    tools:context=".views.homepage.HomepageActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/txtViewUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Username"
+            android:gravity="center"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"/>
+
+        <TextView
+            android:id="@+id/txtViewEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:gravity="center"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"/>
+
+        <TextView
+            android:id="@+id/txtViewUserId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/UserId"
+            android:gravity="center"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:textSize="18sp"
+            android:textColor="@color/main_color"/>
+        <Button
+            android:id="@+id/btnSignOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:background="@drawable/rounded_normal_edittext"
+            android:backgroundTint="@color/main_color"
+            android:fontFamily="@font/nunito_sans_bold"
+            android:text="Keluar"
+            android:textFontWeight="700"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+
+
+</LinearLayout>
