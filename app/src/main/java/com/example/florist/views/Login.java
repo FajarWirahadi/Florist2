@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.InputType;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -63,14 +65,16 @@ public class Login extends AppCompatActivity {
         editTextPassword = findViewById(R.id.editTextPassword);
         mAuth = FirebaseAuth.getInstance();
         btnLogin = findViewById(R.id.btnLogin);
+        ProgressDialog progressDialog = new ProgressDialog(this);
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
         actionBar.setElevation(0);
 
-
-
+        progressDialog.setTitle("Please Wait..");
+        progressDialog.setMessage("Loging to your account");
+        progressDialog.setCancelable(false);
 
         textViewShowPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,24 +100,13 @@ public class Login extends AppCompatActivity {
                 Matcher matcher = pattern.matcher(emailPhoneNumber);
                 if (matcher.matches()) {
                     Intent intent = new Intent(Login.this, HomepageActivity.class);
-                    LoginIdentifier("email", emailPhoneNumber, usersRef, intent);
-                    Toast.makeText(Login.this, "isValid - " + isValid, Toast.LENGTH_SHORT).show();
-//                    if (isValid) {
-//                    mAuth.signInWithEmailAndPassword(emailPhoneNumber, password);
-//                    FirebaseUser user = mAuth.getCurrentUser();
-//                    startActivity(intent);
-//                    }
+                    LoginIdentifier("email", emailPhoneNumber, usersRef, intent, progressDialog);
                 } else if (emailPhoneNumber.matches("^[0-9]+$")) {
                     emailPhoneNumber = emailPhoneNumber.substring(1);
-                    Intent intent = new Intent(Login.this, RegisterVerificationActivity.class);
-                    intent.putExtra("phoneNumber", "+62"+emailPhoneNumber);
-                    intent.putExtra("identifier", "2_phoneNumber");
-                    LoginIdentifier("phoneNumber", "+62" + emailPhoneNumber, usersRef, intent);
-//                    FirebaseUser user = mAuth.getCurrentUser();
-                    Toast.makeText(Login.this, "isValid - " + isValid, Toast.LENGTH_SHORT).show();
-//                    if (isValid) {
-//                    startActivity(intent);
-//                    }
+                    Intent intent = new Intent(Login.this, HomepageActivity.class);
+//                    intent.putExtra("phoneNumber", "+62"+emailPhoneNumber);
+//                    intent.putExtra("identifier", "2_phoneNumber");
+                    LoginIdentifier("phoneNumber","+62" +  emailPhoneNumber, usersRef, intent, progressDialog);
                 } else {
                     Toast.makeText(Login.this, "Account not found", Toast.LENGTH_SHORT).show();
                 }
@@ -136,7 +129,9 @@ public class Login extends AppCompatActivity {
         }
         isPasswordVisible = !isPasswordVisible;
     }
-    private void LoginIdentifier(String identifier, String emailPhoneNumber, CollectionReference usersRef, Intent intent) {
+
+    private void LoginIdentifier(String identifier, String emailPhoneNumber, CollectionReference usersRef,
+                                 Intent intent, ProgressDialog progressDialog) {
         Log.d("EmailPhoneNumber", emailPhoneNumber);
         usersRef.whereEqualTo(identifier, emailPhoneNumber)
                 .get()
@@ -149,20 +144,43 @@ public class Login extends AppCompatActivity {
 //                                Log.d("Passwword", String.valueOf(document.get("password")));
                                 if (password.equals(String.valueOf(document.get("password"))) &&
                                         emailPhoneNumber.equals(String.valueOf(document.get(identifier)))) {
-                                    mAuth.signInWithEmailAndPassword(emailPhoneNumber, password);
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    startActivity(intent);
-//                                    isValid = true;
-                                    Toast.makeText(Login.this, "Login Success - " + isValid, Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(Login.this, "Login Failed - " + isValid, Toast.LENGTH_SHORT).show();
-                                    isValid = false;
+                                    final String email = String.valueOf(document.get("email"));
+                                    mAuth.signInWithEmailAndPassword(email, password)
+                                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                                @Override
+                                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                                    FirebaseUser user = mAuth.getCurrentUser();
+                                                    progressDialog.show();
+                                                    final Handler handler = new Handler();
+                                                    final int delay = 1000; //milisecond
+                                                    boolean stop = false;
+
+                                                    handler.postDelayed(new Runnable() {
+                                                        @Override
+                                                        public void run() {
+                                                            if (user!=null){
+                                                                user.reload();
+                                                                if (user.isEmailVerified()){
+                                                                    Toast.makeText(Login.this, "Current User is Exist - Login Success", Toast.LENGTH_SHORT).show();
+                                                                    progressDialog.dismiss();
+                                                                }
+                                                            }
+                                                            handler.postDelayed(this, delay);
+                                                        }
+                                                    }, delay);
+                                                    handler.removeCallbacksAndMessages(null);
+                                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                    startActivity(intent);
+                                                }
+                                            })
+                                            .addOnFailureListener(new OnFailureListener() {
+                                                @Override
+                                                public void onFailure(@NonNull Exception e) {
+                                                    Toast.makeText(Login.this, "Login with email failed", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
                                 }
-                                Log.d("Email Terdaftar", "Email Terdaftar");
                             }
-                        } else {
-                            isValid = false;
-                            Log.d("Email belum Terdaftar", "Email belum Terdaftar");
                         }
                     }
                 });

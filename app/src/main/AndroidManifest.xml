@@ -18,21 +18,44 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".views.seller.createshop.CreateShop_3Activity"
+            android:exported="false" />
+        <activity
+            android:name=".views.seller.createshop.CreateShop_2Activity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".views.seller.createshop.createshop_1Activity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".views.seller.Profil_1Activity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
             android:name=".views.RegisterSuccessActivity"
             android:exported="true" />
         <activity
             android:name=".views.homepage.HomepageActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
-                    android:host="com.example.florist"
-                    android:scheme="http"/>
+                    android:host="https://setaman.page.link/flr"
+                    android:scheme="http" />
                 <data
-                    android:host="com.example.florist"
-                    android:scheme="https"/>
+                    android:host="https://setaman.page.link/flr"
+                    android:scheme="https" />
             </intent-filter>
         </activity>
         <activity
@@ -43,30 +66,22 @@
             android:exported="true" />
         <activity
             android:name=".views.RegisterVerificationActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-
-            </intent-filter>
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.VIEW"/>-->
-<!--                <category android:name="android.intent.category.DEFAULT"/>-->
-<!--                <category android:name="android.intent.category.BROWSABLE"/>-->
-<!--                <data-->
-<!--                    android:host="florist-9a390.web.app"-->
-<!--                    android:scheme="https"/>-->
-<!--            </intent-filter>-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.VIEW" />-->
-<!--                <category android:name="android.intent.category.DEFAULT" />-->
-<!--                <category android:name="android.intent.category.BROWSABLE" />-->
-<!--                <data-->
-<!--                    android:host="https://setaman.page.link/flr"-->
-<!--                    android:scheme="https"/>-->
-<!--            </intent-filter>-->
-        </activity>
+            android:exported="true" /> <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.VIEW"/> -->
+        <!-- <category android:name="android.intent.category.DEFAULT"/> -->
+        <!-- <category android:name="android.intent.category.BROWSABLE"/> -->
+        <!-- <data -->
+        <!-- android:host="florist-9a390.web.app" -->
+        <!-- android:scheme="https"/> -->
+        <!-- </intent-filter> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="android.intent.action.VIEW" /> -->
+        <!-- <category android:name="android.intent.category.DEFAULT" /> -->
+        <!-- <category android:name="android.intent.category.BROWSABLE" /> -->
+        <!-- <data -->
+        <!-- android:host="https://setaman.page.link/flr" -->
+        <!-- android:scheme="https"/> -->
+        <!-- </intent-filter> -->
         <activity
             android:name=".views.RegisterSelectVerificationActivity"
             android:exported="true" />
@@ -78,14 +93,14 @@
             android:exported="true" />
         <activity
             android:name=".views.Login"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".views.splashscreen.OnboardingActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".views.splashscreen.SplashScreen"
             android:exported="true"
-            android:theme="@style/SplashScreen"/>
+            android:theme="@style/SplashScreen" />
     </application>
 
 </manifest>

@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_secondary"
+    tools:context=".views.seller.Profil_1Activity">
+    
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="2dp">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:orientation="horizontal">
+
+<!--            <ImageView-->
+<!--                android:id="@+id/btn_back"-->
+<!--                android:layout_width="18dp"-->
+<!--                android:layout_height="18dp"-->
+<!--                android:src="@drawable/arrow_back"/>-->
+
+            
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                style="@style/title_md_bold"
+                android:textColor="@color/text_primary"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="16dp">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="5dp"
+            android:layout_marginTop="16dp">
+
+            <ImageView
+                android:id="@+id/profilePicture"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/rounded_photo"
+                android:backgroundTint="@color/olive_500">
+            </ImageView>
+
+            <LinearLayout
+                android:id="@+id/usernameUserIdLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_toEndOf="@+id/profilePicture"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="16dp">
+                <TextView
+                    android:id="@+id/txtViewUsername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/title_md_bold"
+                    android:textColor="@color/gray_900"
+                    android:text="@string/Username"/>
+
+                <TextView
+                    android:id="@+id/txtViewUserId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/body_md_regular"
+                    android:textColor="@color/gray_500"
+                    android:text="ID : 009128412"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line"
+            android:layout_marginVertical="16dp"/>
+
+<!--        BERGABUNG MENJADI MITRA LAYOUT-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_gray_layout"
+            android:elevation="2dp">
+
+<!--            ICON BACKGROUND-->
+            <RelativeLayout
+                android:id="@+id/iconBackground"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_photo"
+                android:backgroundTint="@color/gray_100"
+                android:layout_marginVertical="12dp"
+                android:layout_marginLeft="16dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/building"
+                    android:clipToOutline="true"
+                    android:layout_centerInParent="true"
+                    android:layout_margin="12dp"/>
+
+            </RelativeLayout>
+
+<!--            TEXT LAYOUT-->
+            <LinearLayout
+                android:id="@+id/textLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/iconBackground"
+                android:orientation="vertical"
+                android:layout_marginHorizontal="12dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bergabung_menjadi_mitra"
+                    style="@style/title_md_bold"
+                    android:textColor="@color/olive_500"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buka_toko_gratis"
+                    style="@style/body_md_regular"
+                    android:textColor="@color/gray_500"/>
+
+            </LinearLayout>
+
+<!--            CHEVRON RIGHT ICON-->
+            <ImageView
+                android:id="@+id/chevronRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/right_arrow"
+                android:layout_marginRight="16dp"/>
+        </RelativeLayout>
+
+<!--        PERSEWAAN SAYA LAYOUT-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginVertical="16dp">
+<!--            PERSEWAAN SAYA-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/persewaan_saya"
+                style="@style/title_md_bold"
+                android:textColor="@color/gray_900"
+                android:layout_weight="2"/>
+
+<!--            LIHAT SEMUA-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lihat_semua"
+                    style="@style/label_lg_regular"
+                    android:textColor="@color/gray_500"/>
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:src="@drawable/right_arrow"
+                    android:layout_gravity="center_vertical"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+<!--        STATUS PERSEWAAN LAYOUT-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/rounded_gray_layout"
+            android:elevation="2dp">
+<!--BELUM DIBAYAR LAYOUT-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/belum_dibayar"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/belum_ndibayar"
+                    style="@style/body_sm_regular"
+                    android:textColor="@color/text_primary"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+<!--DALAM PROSES LAYOUT-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/dalam_proses"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dalam\nProses"
+                    style="@style/body_sm_regular"
+                    android:textColor="@color/text_primary"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+<!--DIKIRIM LAYOUT-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/dikirim"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dikirim"
+                    style="@style/body_sm_regular"
+                    android:textColor="@color/text_primary"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+<!--DALAM PERAWATAN LAYOUT-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_weight="1">
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/dalam_perawatan"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dalam_nperawatan"
+                    style="@style/body_sm_regular"
+                    android:textColor="@color/text_primary"
+                    android:textAlignment="center"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+<!--LINE-->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_100"
+        android:layout_marginVertical="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="16dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Akun dan Keamanan"
+            style="@style/title_md_bold"
+            android:textColor="@color/gray_900"
+            android:layout_marginBottom="16dp"/>
+
+<!--UBAH PROFIL LAYOUT-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="4dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/user" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ubah profil"
+                style="@style/body_md_regular"
+                android:textColor="@color/gray_900"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"/>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/right_arrow"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+<!--LINE-->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:src="@drawable/line"
+            android:backgroundTint="@color/gray_100"
+            android:layout_marginVertical="8dp"/>
+
+<!--UBAH DATA AKUN LAYOUT-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="4dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/lock_closed" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ubah_data_akun"
+                style="@style/body_md_regular"
+                android:textColor="@color/gray_900"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"/>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/right_arrow"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lainnya"
+            style="@style/title_md_bold"
+            android:textColor="@color/gray_900"
+            android:layout_marginTop="18dp"/>
+
+<!--KELUAR-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="16dp"
+            android:paddingHorizontal="4dp">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logout" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Keluar"
+                style="@style/body_md_regular"
+                android:textColor="@color/gray_900"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"/>
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/right_arrow"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

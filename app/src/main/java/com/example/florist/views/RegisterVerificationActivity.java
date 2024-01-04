@@ -14,6 +14,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -22,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -59,7 +61,8 @@ public class RegisterVerificationActivity extends AppCompatActivity {
 
     ProgressBar progressBar;
     EditText editText1, editText2, editText3, editText4, editText5, editText6;
-    TextView countDownTimer, textViewChange, textViewPhoneNumber, emailUser, idUser;
+    TextView countDownTimer, textViewChange, textViewPhoneNumber, verificationMethod, hintVerificationMethod, method, emailUser, idUser;
+    LinearLayout hintVerificationMethod_2;
     private TextWatcher txtCode;
     private String userName, email, password, phoneNumber, identifier;
     int currentProgress = 0;
@@ -81,6 +84,10 @@ public class RegisterVerificationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register_verification);
 
         progressBar = findViewById(R.id.progressBar);
+        verificationMethod = findViewById(R.id.verificationMethod);
+        hintVerificationMethod = findViewById(R.id.hintVerificationMethod);
+        hintVerificationMethod_2 = findViewById(R.id.hintVerificationMethod_2);
+        method = findViewById(R.id.method);
         textViewPhoneNumber = findViewById(R.id.textViewPhoneNumber);
         editText1 = findViewById(R.id.editTxt1);
         editText2 = findViewById(R.id.editTxt2);
@@ -89,20 +96,25 @@ public class RegisterVerificationActivity extends AppCompatActivity {
         editText5 = findViewById(R.id.editTxt5);
         editText6 = findViewById(R.id.editTxt6);
         countDownTimer = findViewById(R.id.countDownTimer);
-        emailUser = findViewById(R.id.emailUser);
-        idUser = findViewById(R.id.idUser);
+//        emailUser = findViewById(R.id.emailUser);
+//        idUser = findViewById(R.id.idUser);
         textViewChange = findViewById(R.id.textViewChange);
+        ProgressDialog progressDialog = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
         firebaseAuthSettings = mAuth.getFirebaseAuthSettings();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-
-
+        // ACTION BAR
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeAsUpIndicator(R.drawable.arrow_back);
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00000000")));
         actionBar.setElevation(2);
+
+        // PROOGRESS DIALOG
+        progressDialog.setTitle("Please Wait..");
+        progressDialog.setMessage("Loging to your account");
+        progressDialog.setCancelable(false);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -153,59 +165,73 @@ public class RegisterVerificationActivity extends AppCompatActivity {
         //By default open keyboard on first edittext
         showKeyboard(editText1);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            // Name, email address, and profile photo Url
-            emailUser.setText(user.getDisplayName());
-            idUser.setText(user.getEmail());
-
-            // Check if user's email is verified
-            boolean emailVerified = user.isEmailVerified();
-            Log.d("IsEmailVerified", String.valueOf(emailVerified));
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getIdToken() instead.
-//            txtViewUserId.setText(user.getUid());
-        }
-
-
-//        mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+//        final Handler handler = new Handler();
+//        final int delay = 2000; //miliseconds
+//
+//        handler.postDelayed(new Runnable() {
 //            @Override
-//            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-//                mVerificationCode = phoneAuthCredential.getSmsCode();
-//                Log.d("Verification Completed", "Verification Completed");
-//                if (mVerificationCode!=null) {
-//                    verifyPhoneNumberWithCode(mVerificationCode);
+//            public void run() {
+//                Toast.makeText(RegisterVerificationActivity.this, "I'm here", Toast.LENGTH_SHORT).show();
+//                FirebaseUser firebaseUser = mAuth.getCurrentUser();
+//                if (firebaseUser!= null) {
+//                    firebaseUser.reload();
+//                    if (firebaseUser.isEmailVerified()) {
+//                        progressDialog.dismiss();
+//                        startActivity(new Intent(RegisterVerificationActivity.this, RegisterSuccessActivity.class));
+//                    }
 //                }
+//                handler.postDelayed(this, delay);
 //            }
+//        }, delay);
+
+
 //
-//            @Override
-//            public void onVerificationFailed(@NonNull FirebaseException e) {
-//                Log.d("Verification Failed", "Verification Failed");
-////                Toast.makeText(RegisterSelectVerificationActivity.this, "Verification Failed", Toast.LENGTH_LONG).show();
-//            }
-//
-//            @Override
-//            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-//                super.onCodeSent(s, forceResendingToken);
-//                Log.d("onCodeSent", s);
-//                mVerificationId = s;
-//                mResendToken = forceResendingToken;
-//            }
-//        };
 //        Log.d("Identifier", identifier);
         //IMPORTANT FUNCTION
-        identifier = "email";
         if (identifier.equals("phoneNumber") ||
         identifier.substring(2).equals("phoneNumber"))
         {
         textViewPhoneNumber.setText(phoneNumber);
+            mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                            @Override
+            public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                mVerificationCode = phoneAuthCredential.getSmsCode();
+                Log.d("Verification Completed", "Verification Completed");
+                if (mVerificationCode!=null) {
+                    verifyPhoneNumberWithCode(mVerificationCode, progressDialog);
+                }
+            }
+
+            @Override
+            public void onVerificationFailed(@NonNull FirebaseException e) {
+                Log.d("Verification Failed", "Verification Failed");
+//                Toast.makeText(RegisterSelectVerificationActivity.this, "Verification Failed", Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                super.onCodeSent(s, forceResendingToken);
+                Log.d("onCodeSent", s);
+                mVerificationId = s;
+                mResendToken = forceResendingToken;
+            }
+        };
         startPhoneNumberVerification(phoneNumber);
         }
         // Signup via email
         else if (identifier.equals("email")){
+            verificationMethod.setText(R.string.verifikasi_email);
+            hintVerificationMethod.setText(R.string.klik_link_yang_anda_terima_melalui);
+            method.setText(R.string.email);
+            textViewPhoneNumber.setText(email);
+            editText1.setVisibility(View.GONE);
+            editText2.setVisibility(View.GONE);
+            editText3.setVisibility(View.GONE);
+            editText4.setVisibility(View.GONE);
+            editText5.setVisibility(View.GONE);
+            editText6.setVisibility(View.GONE);
             signUpWithEmailAndPassword();
+            progressDialog.show();
 //            String email = "sigamers007@gmail.com";
 //            FirebaseDynamicLinks.getInstance()
 
@@ -307,29 +333,38 @@ public class RegisterVerificationActivity extends AppCompatActivity {
         return true;
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null) {
-            if(FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
-                Intent intent = new Intent(RegisterVerificationActivity.this, HomepageActivity.class);
-                startActivity(intent);
-                Log.d("OnResume", "OnResume");
+    private void LoadingFetchUserData(ProgressDialog progressDialog) {
+        final Handler handler = new Handler();
+        final int delay = 2000; //miliseconds
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(RegisterVerificationActivity.this, "I'm here", Toast.LENGTH_SHORT).show();
+                FirebaseUser firebaseUser = mAuth.getCurrentUser();
+                if (firebaseUser!= null) {
+                    firebaseUser.reload();
+                    if (firebaseUser.isEmailVerified()) {
+                        progressDialog.dismiss();
+                    }
+                }
+                handler.postDelayed(this, delay);
             }
-        }
+        }, delay);
+        handler.removeCallbacksAndMessages(null);
+        Intent intent = (new Intent(RegisterVerificationActivity.this, RegisterSuccessActivity.class));
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     private void signUpWithEmailAndPassword(){
-        String email = "sigamers007@gmail.com";
-        String password = "kills456dt32";
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                            User user = new User("wirahadi123", email, password, "0000", true);
+                            User user = new User(userName, email, password, phoneNumber, true);
                             FirebaseFirestore db = FirebaseFirestore.getInstance();
                             db.collection("Users").document(userId).set(user)
                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -351,28 +386,14 @@ public class RegisterVerificationActivity extends AppCompatActivity {
     }
 
     private void doSignInWithEmailAndPassword() {
-        String email = "sigamers007@gmail.com";
-        String password = "kills456dt32";
-        ProgressDialog progressDialog = new ProgressDialog(this);
-        progressDialog.setTitle("Please Wait..");
-        progressDialog.setMessage("Loging to your account");
-        progressDialog.setCancelable(false);
-        progressDialog.show();
         FirebaseAuth.getInstance().signInWithEmailAndPassword(
                 email, password
         ).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                progressDialog.dismiss();
                 if (task.isSuccessful()) {
-                    if (FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
-                        Toast.makeText(RegisterVerificationActivity.this, "User SignIn Successfully", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(RegisterVerificationActivity.this, HomepageActivity.class);
-                        startActivity(intent);
-                    } else {
-                        Toast.makeText(RegisterVerificationActivity.this, "PLease verify your email first", Toast.LENGTH_SHORT).show();
-                    }
-
+//                    Intent intent = new Intent(RegisterVerificationActivity.this, RegisterSuccessActivity.class);
+//                    startActivity(intent);
                 } else {
                     Toast.makeText(RegisterVerificationActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
                 }
@@ -418,10 +439,6 @@ public class RegisterVerificationActivity extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         Toast.makeText(RegisterVerificationActivity.this, "Email Verification link sent to your email.", Toast.LENGTH_SHORT).show();
                             doSignInWithEmailAndPassword();
-                        if(FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
-                        }
-//                        Intent intent = new Intent(RegisterVerificationActivity.this, HomepageActivity.class);
-//                        startActivity(intent);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -465,7 +482,7 @@ public class RegisterVerificationActivity extends AppCompatActivity {
         PhoneAuthProvider.verifyPhoneNumber(options);
     }
 
-    private void verifyPhoneNumberWithCode(String code){
+    private void verifyPhoneNumberWithCode(String code, ProgressDialog progressDialog){
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(mVerificationId, code);
         mVerificationCode = code;
         Log.d("Verification Code", mVerificationCode);
@@ -473,7 +490,7 @@ public class RegisterVerificationActivity extends AppCompatActivity {
         autoGenerateCode(mVerificationCode);
         }
         Log.d("VerificationCode", mVerificationCode);
-        signInWithPhoneAuthCredential(credential);
+        signInWithPhoneAuthCredential(credential, progressDialog);
     }
 
 //    private void createUserFirestore(User user) {
@@ -491,7 +508,7 @@ public class RegisterVerificationActivity extends AppCompatActivity {
 ////                    startActivity(intent);
 //    }
 
-    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential, ProgressDialog progressDialog) {
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -502,13 +519,13 @@ public class RegisterVerificationActivity extends AppCompatActivity {
                                 startActivity(new Intent(RegisterVerificationActivity.this, HomepageActivity.class));
                             } else {
                             userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                            User user = new User(userName, email, password, phoneNumber, true);
+                            User user = new User(userName, email, password, phoneNumber.substring(1), true);
                             FirebaseFirestore db = FirebaseFirestore.getInstance();
                             db.collection("Users").document(userId).set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {
-                                    Intent intent = new Intent(RegisterVerificationActivity.this, RegisterSuccessActivity.class);
-                                    startActivity(intent);
+                                    progressDialog.show();
+                                    LoadingFetchUserData(progressDialog);
                                 }
                             });
                             Log.d(TAG, "signInWithCredential:success");
