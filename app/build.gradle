@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+
 }
 
 android {
@@ -48,5 +49,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.27'
+    implementation 'com.mapbox.maps:android:10.15.0'
+    implementation "com.mapbox.search:autofill:1.2.0"
+    implementation "com.mapbox.search:discover:1.2.0"
+    implementation "com.mapbox.search:place-autocomplete:1.2.0"
+    implementation "com.mapbox.search:mapbox-search-android-ui:1.0.0-rc.6"
+    implementation 'com.mapbox.navigation:android:2.15.2'
 
 }

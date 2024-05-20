@@ -79,4 +79,8 @@
     <string name="alamat">Alamat</string>
     <string name="alamat_toko_anda">Alamat toko anda</string>
     <string name="nomor_hp">Nomor HP</string>
+    <string name="lokasi_peta">Lokasi Peta</string>
+    <string name="search">Search</string>
+    <string name="cari_di_sini">Cari di sini</string>
+    <string name="mapbox_access_token">"pk.eyJ1IjoiZmFqYXJ3aXJhMTQwMyIsImEiOiJjbHZ4bzUwdDYyOGF2MmltaDd2ZzR5ZG4wIn0.ymznZ8GsSLH48jO5savzMg"</string>
 </resources>

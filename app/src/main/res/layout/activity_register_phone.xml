@@ -83,11 +83,11 @@
 
     <Button
         android:id="@+id/btnRegister"
+        style="label_lg_bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16sp"
         android:background="@drawable/rounded_gray_button"
-        style="label_lg_bold"
         android:text="@string/lanjut"
         android:textAllCaps="false"
         android:textColor="@color/text_tertiary" />
