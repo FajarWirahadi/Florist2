@@ -69,11 +69,11 @@ public class CreateShop_2Activity extends AppCompatActivity {
                             public void afterTextChanged(EditText editText, Editable editable) {
                             String text = editable.toString();
                             String text2 = editText.toString();
-                            Log.d("text", text);
-                            Log.d("text2", text2);
+
+
 
                                 if (text.length() >=6 && text2.length() >=6) {
-                                btnNext.setBackground(AppCompatResources.getDrawable(CreateShop_2Activity.this, R.drawable.rounded_success_button));
+
                             } else {
                                 btnNext.setBackground(AppCompatResources.getDrawable(CreateShop_2Activity.this, R.drawable.rounded_gray_button));
 
