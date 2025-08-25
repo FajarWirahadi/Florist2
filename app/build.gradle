@@ -49,11 +49,15 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth'
     implementation("com.google.android.gms:play-services-auth:20.7.0")
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.27'
-    implementation 'com.mapbox.maps:android:10.15.0'
-    implementation "com.mapbox.search:autofill:1.2.0"
-    implementation "com.mapbox.search:discover:1.2.0"
-    implementation "com.mapbox.search:place-autocomplete:1.2.0"
-    implementation "com.mapbox.search:mapbox-search-android-ui:1.0.0-rc.6"
-    implementation 'com.mapbox.navigation:android:2.15.2'
-
+//    implementation 'com.mapbox.maps:android:10.15.0'
+//    implementation "com.mapbox.search:autofill:1.2.0"
+//    implementation "com.mapbox.search:discover:1.2.0"
+//    implementation "com.mapbox.search:place-autocomplete:1.2.0"
+//    implementation "com.mapbox.search:mapbox-search-android-ui:1.0.0-rc.6"
+//    implementation 'com.mapbox.navigation:android:2.15.2'
+    implementation 'org.osmdroid:osmdroid-android:6.1.20'
+    implementation 'com.github.MKergall:osmbonuspack:6.9.0'
+    implementation 'org.apache.commons:commons-lang3:3.8.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.okhttp3:okhttp:4.7.2'
 }

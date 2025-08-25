@@ -42,45 +42,59 @@
         android:layout_height="500sp"
         android:layout_below="@id/toolbar">
 
-        <com.mapbox.maps.MapView
-            android:id="@+id/mapView"
+        <org.osmdroid.views.MapView
+            android:id="@+id/map"
             android:layout_width="match_parent"
             android:layout_height="500sp"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/searchLayout"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:textColor="@color/black"
-            app:boxStrokeWidth="0sp"
-            app:boxStrokeWidthFocused="0sp"
-            app:startIconDrawable="@drawable/search"
-            app:boxCornerRadiusTopStart="20sp"
-            app:boxCornerRadiusTopEnd="20sp"
-            app:boxCornerRadiusBottomStart="20sp"
-            app:boxCornerRadiusBottomEnd="20sp"
+            android:orientation="horizontal" >
+        <com.example.florist.utils.AutoCompleteOnPreferences
+            android:id="@+id/editDestination"
             android:hint="@string/cari_di_sini"
-            android:elevation="4sp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:id="@+id/searchET"
-                android:background="@drawable/rounded_normal_edittext"
-                android:textColor="@color/black"/>
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.mapbox.search.ui.view.SearchResultsView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/search_result_view"
-            android:layout_marginTop="16sp"
-            android:visibility="gone"
-            android:paddingTop="8sp"
-            android:paddingBottom="22sp"
-            android:layout_below="@id/searchLayout"/>
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:completionThreshold="1" />
+        <Button
+            android:id="@+id/buttonSearchDest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_gravity="right"
+            android:layout_weight="0"
+            android:text="@string/search" />
+        </LinearLayout>
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/searchLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="4dp"-->
+<!--            android:textColor="@color/black"-->
+<!--            app:boxStrokeWidth="0sp"-->
+<!--            app:boxStrokeWidthFocused="0sp"-->
+<!--            app:startIconDrawable="@drawable/search"-->
+<!--            app:boxCornerRadiusTopStart="20sp"-->
+<!--            app:boxCornerRadiusTopEnd="20sp"-->
+<!--            app:boxCornerRadiusBottomStart="20sp"-->
+<!--            app:boxCornerRadiusBottomEnd="20sp"-->
+<!--            android:hint="@string/cari_di_sini"-->
+<!--            android:elevation="4sp">-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:inputType="text"-->
+<!--                android:layout_marginHorizontal="8sp"-->
+<!--                android:id="@+id/searchET"-->
+<!--                android:background="@drawable/rounded_normal_edittext"-->
+<!--                android:textColor="@color/black"/>-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/focusLocation"
@@ -98,59 +112,64 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="16dp"
-        android:layout_below="@id/mapsLayout">
+        android:layout_below="@id/mapsLayout"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="vertical">
 
 
+        <!--            <ImageView-->
+        <!--                android:id="@+id/searchIcon"-->
+        <!--                android:layout_width="20dp"-->
+        <!--                android:layout_height="20dp"-->
+        <!--                android:src="@drawable/search"-->
+        <!--                android:layout_alignParentEnd="true"-->
+        <!--                android:layout_centerVertical="true"-->
+        <!--                android:layout_marginEnd="20sp"/>-->
 
-<!--            <ImageView-->
-<!--                android:id="@+id/searchIcon"-->
-<!--                android:layout_width="20dp"-->
-<!--                android:layout_height="20dp"-->
-<!--                android:src="@drawable/search"-->
-<!--                android:layout_alignParentEnd="true"-->
-<!--                android:layout_centerVertical="true"-->
-<!--                android:layout_marginEnd="20sp"/>-->
 
-
-<!--        ADDRESS LAYOUT-->
+        <!--        ADDRESS LAYOUT-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginVertical="16sp">
+            android:layout_marginVertical="16sp"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tvKnownName"
+                style="@style/body_md_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/body_md_bold"
                 android:text=""
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/tvAddress"
+                style="@style/body_md_regular"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                style="@style/body_md_regular"
                 android:text=""
-                android:textColor="@color/black"/>
+                android:textColor="@color/black" />
         </LinearLayout>
 
     </LinearLayout>
     <!--BUTTON LAYOUT-->
     <Button
         android:id="@+id/btnNext"
+        style="@style/label_lg_bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16sp"
+        android:layout_marginTop="16sp"
+        android:layout_marginEnd="16sp"
+        android:layout_marginBottom="16sp"
         android:background="@drawable/rounded_gray_button"
         android:padding="4dp"
         android:text="@string/lanjut"
-        android:textColor="@color/text_tertiary"
         android:textAllCaps="false"
-        style="@style/label_lg_bold"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="16sp"/>
+        android:textColor="@color/text_tertiary" />
 
 </RelativeLayout>

@@ -23,9 +23,9 @@ public class RegisterSuccessActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register_success);
         btnLogin = findViewById(R.id.btnLogin);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
-        actionBar.setElevation(0);
+//        ActionBar actionBar = getSupportActionBar();
+//        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffffff")));
+//        actionBar.setElevation(0);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
