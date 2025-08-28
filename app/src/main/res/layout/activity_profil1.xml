@@ -290,78 +290,7 @@
         android:background="@color/gray_100"
         android:layout_marginVertical="16dp"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginHorizontal="16dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Akun dan Keamanan"
-            style="@style/title_md_bold"
-            android:textColor="@color/gray_900"
-            android:layout_marginBottom="16dp"/>
-
-<!--UBAH PROFIL LAYOUT-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingVertical="16dp"
-            android:paddingHorizontal="4dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/user" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Ubah profil"
-                style="@style/body_md_regular"
-                android:textColor="@color/gray_900"
-                android:layout_marginLeft="16dp"
-                android:layout_weight="1"/>
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/right_arrow"
-                android:layout_gravity="center_vertical"/>
-        </LinearLayout>
-
-<!--LINE-->
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:src="@drawable/line"
-            android:backgroundTint="@color/gray_100"
-            android:layout_marginVertical="8dp"/>
-
-<!--UBAH DATA AKUN LAYOUT-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingVertical="16dp"
-            android:paddingHorizontal="4dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/lock_closed" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ubah_data_akun"
-                style="@style/body_md_regular"
-                android:textColor="@color/gray_900"
-                android:layout_marginLeft="16dp"
-                android:layout_weight="1"/>
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@drawable/right_arrow"
-                android:layout_gravity="center_vertical"/>
-        </LinearLayout>
+        <include layout="@layout/view_akun_dan_keamanan"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -369,7 +298,8 @@
             android:text="Lainnya"
             style="@style/title_md_bold"
             android:textColor="@color/gray_900"
-            android:layout_marginTop="18dp"/>
+            android:layout_marginTop="18dp"
+            android:layout_marginHorizontal="16dp"/>
 
 <!--KELUAR-->
         <LinearLayout
@@ -377,7 +307,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingVertical="16dp"
-            android:paddingHorizontal="4dp">
+            android:paddingHorizontal="24dp">
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -398,5 +328,3 @@
         </LinearLayout>
 
     </LinearLayout>
-
-</LinearLayout>

@@ -83,4 +83,11 @@
     <string name="search">Search</string>
     <string name="cari_di_sini">Cari di sini</string>
     <string name="mapbox_access_token">"pk.eyJ1IjoiZmFqYXJ3aXJhMTQwMyIsImEiOiJjbHZ4bzUwdDYyOGF2MmltaDd2ZzR5ZG4wIn0.ymznZ8GsSLH48jO5savzMg"</string>
+    <string name="riwayat_pesanan">Riwayat Pesanan</string>
+    <string name="florist_surabaya">Florist Surabaya</string>
+    <string name="toko_saya">Toko Saya</string>
+    <string name="tambah_produk">Tambah Produk</string>
+    <string name="masukkan_harga_sewa">Masukkan harga sewa</string>
+    <string name="minimal_durasi_order">Minimal Durasi Order</string>
+    <string name="jadwal_perawatan">Jadwal Perawatan</string>
 </resources>

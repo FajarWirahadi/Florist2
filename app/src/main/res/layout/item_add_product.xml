@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/addImageLayout"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/dotted_line"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+        <ImageView
+            android:id="@+id/addIcon"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@drawable/icon_add" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/addIcon">
+            <TextView
+                android:id="@+id/currentCountImages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/bg_accent"
+                android:textSize="11sp"
+                style="@style/label_sm_regular"/>
+            <TextView
+                android:id="@+id/dash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="/"
+                android:textColor="@color/bg_accent"
+                android:textSize="11sp"
+                style="@style/label_sm_regular"/>
+            <TextView
+                android:id="@+id/maximumCountImages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8"
+                android:textColor="@color/bg_accent"
+                android:textSize="11sp"
+                style="@style/label_sm_regular"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>
